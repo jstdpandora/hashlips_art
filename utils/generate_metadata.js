@@ -4,12 +4,7 @@ const { createCanvas, loadImage } = require("canvas");
 const basePath = process.cwd();
 const buildDir = `${basePath}/build/json`;
 const inputDir = `${basePath}/build/images`;
-const {
-  format,
-  namePrefix,
-  description,
-  baseUri,
-} = require(`${basePath}/src/config.js`);
+const { format, namePrefix, baseUri } = require(`${basePath}/src/config.js`);
 const console = require("console");
 const canvas = createCanvas(format.width, format.height);
 const ctx = canvas.getContext("2d");
@@ -139,11 +134,9 @@ const saveMetadata = (_loadedImageObject) => {
 
   let tempMetadata = {
     name: `${namePrefix} #${shortName}`,
-    description: description,
     image: `${baseUri}/${shortName}.png`,
     edition: Number(shortName),
     attributes: tempAttributes,
-    compiler: "HashLips Art Engine",
   };
   fs.writeFileSync(
     `${buildDir}/${shortName}.json`,

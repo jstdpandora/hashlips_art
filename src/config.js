@@ -5,18 +5,15 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "The Trendy Girl";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
   symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
   creators: [
     {
       address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-      share: 100,
+      share: 1,
     },
   ],
 };
@@ -24,13 +21,13 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 6,
+    growEditionSizeTo: 10000,
     layersOrder: [
-      { name: "1" },
-      { name: "2" },
-      { name: "3" },
-      { name: "4" },
-      { name: "5" },
+      { name: "Background" },
+      { name: "Clothes" },
+      { name: "Accessory" },
+      { name: "Skin" },
+      { name: "Hair" },
     ],
   },
 ];
@@ -40,8 +37,8 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 1500,
+  height: 1500,
   smoothing: false,
 };
 
@@ -101,7 +98,6 @@ const preview_gif = {
 module.exports = {
   format,
   baseUri,
-  description,
   background,
   uniqueDnaTorrance,
   layerConfigurations,
